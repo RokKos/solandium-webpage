@@ -17,7 +17,7 @@ disqusShortname = "" # get your shortname form here : https://disqus.com
 favicon = "images/favicon.webp"
 # Meta data
 images = ["images/og_image.webp"]
-description = "a short experimental animated film by Nejc Trampuž, created with the assistance of artificial intelligence"
+description = "Experimental solarpunk AI computer game. Can you build a sustainable society?"
 author = "Nejc Trampuž"
 
 
