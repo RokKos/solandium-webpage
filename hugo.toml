@@ -78,7 +78,7 @@ preloader = "images/preloader.gif" # use jpg, png, svg or gif format.
 
 ################################### English language #####################################
 [Languages.en]
-title = "Rooted In Code"
+title = "Solandium 2046"
 languageName = "ENG"
 languageCode = "en-us"
 contentDir = "content/english"
@@ -124,7 +124,7 @@ weight = 6
 
 ################################### Slovene language #####################################
 [Languages.slo]
-title = "Zakoreninjeno v kodi"
+title = "Solandium 2046"
 languageName = "SLO"
 languageCode = "slo-slo"
 contentDir = "content/slovenia"
