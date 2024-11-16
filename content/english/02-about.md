@@ -3,12 +3,14 @@ title : ""
 
 button:
   enable : true
-  label : "FILM ON FILMFREEWAY"
+  label : "PLAY SOLANDIUM 2063"
   # METHOD FROM HERE
   link : "https://filmfreeway.com/projects/3013757"
 
 ---
-The film takes place in the year 2057. In a polluted city, a permaculture garden flourishes on the roof of a skyscraper, tended by a robot gardener and an elderly botanist. Appealing to all ages, the film speculates on the degraded state of the environment, nature, and the ecosystem in the future, but at the same time presents a utopian solarpunk vision and solutions to the environmental crisis. It also brings into the equation a question of the impact artificial intelligence will have on our society, our daily lives, and our environment.
-<br><br>
-When animating, the filmmaker Nejc Trampuž explored the capabilities of the rapidly evolving tools of generative artificial intelligence. Those are shaking up the social and artistic realms and entering the field of film production and gaming. The AI tools were used to generate elements of animation and sound, as well as to write the story, script, and visual design of characters and scenes. Nejc Trampuž worked with artist and sound designer Tim Kropivšek to create the audio while Blaž Šef, an actor and interpreter, provided the voice.
+Solandium 2063 is an experimental 3D solarpunk strategy computer game with integrated artificial intelligence, developed by multimedia artist Nejc Trampuž and his team. Set in the dystopian future of 2063, your mission is to strategise through dialogue with the AI to transform an abandoned robotic centre into an eco-community - will you succeed in creating a sustainable society? <br><br>
+This hybrid between artwork, computer game and interactive education tool is also a technological experiment, as the game elements have been generated using the latest AI tools. It follows the aesthetics and values of solarpunk, optimistically striving for a just and ecological society and the responsible use of technology. Solandium 2063 explores the role of AI in the transition towards sustainability, highlighting its potential in addressing environmental challenges and drawing attention to the downsides such as high energy consumption and biases. <br><br>
+At the heart of the project is the belief that every individual has the power and responsibility to contribute to a better future and invites people to actively co-shape the world.
 <!-- Small Text -->
+Can you build a sustainable society?
+
