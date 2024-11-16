@@ -1,0 +1,9 @@
+{{/* Original code from: https://laurakalbag.com/processing-responsive-images-with-hugo/   */}}
+{{/* Just modified a bit to work with render_image hook and output webp images   */}}
+{{/* get file that matches the filename as specified as src=""  */}}
+{{ $src := .File }}
+{{ $alt := .Alt | safeHTML }}
+    
+    <img 
+   alt="{{ $alt }}" title="{{ $alt }}" src="{{ $src.RelPermalink }}" 
+   height="{{ $src.Height}}" width="{{ $src.Width }}" class="lozad trak-img">

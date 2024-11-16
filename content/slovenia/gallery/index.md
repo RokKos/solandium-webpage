@@ -1,0 +1,32 @@
+---
+title :
+
+GalleryInfo:
+- ImageName: "01-Trampuz_AI_Animated_Film_Rooted_In_Code-Zakoreninjeno_V_Kodi_galerija.webp"
+  ImageCaption: ""
+  ImageOverlay: ""
+- ImageName: "02-Trampuz_AI_Animated_Film_Rooted_In_Code-Zakoreninjeno_V_Kodi_galerija.webp"
+  ImageCaption: ""
+  ImageOverlay: ""
+- ImageName: "03-Trampuz_AI_Animated_Film_Rooted_In_Code-Zakoreninjeno_V_Kodi_galerija.webp"
+  ImageCaption: ""
+  ImageOverlay: ""
+- ImageName: "04-Trampuz_AI_Animated_Film_Rooted_In_Code-Zakoreninjeno_V_Kodi_galerija.webp"
+  ImageCaption: ""
+  ImageOverlay: ""
+- ImageName: "05-Trampuz_AI_Animated_Film_Rooted_In_Code-Zakoreninjeno_V_Kodi_galerija.webp"
+  ImageCaption: ""
+  ImageOverlay: ""
+- ImageName: "06-Trampuz_AI_Animated_Film_Rooted_In_Code-Zakoreninjeno_V_Kodi_galerija.webp"
+  ImageCaption: ""
+  ImageOverlay: ""
+- ImageName: "08-Trampuz_AI_Animated_Film_Rooted_In_Code-Zakoreninjeno_V_Kodi_galerija.webp"
+  ImageCaption: ""
+  ImageOverlay: ""
+- ImageName: "07-Trampuz_AI_Animated_Film_Rooted_In_Code-Zakoreninjeno_V_Kodi_galerija.webp"
+  ImageCaption: ""
+  ImageOverlay: ""
+- ImageName: "09-Trampuz_AI_Animated_Film_Rooted_In_Code-Zakoreninjeno_V_Kodi_galerija.webp"
+  ImageCaption: ""
+  ImageOverlay: ""
+---

@@ -1,0 +1,24 @@
+{{/* Original code from: https://laurakalbag.com/processing-responsive-images-with-hugo/   */}}
+{{/* Just modified a bit to work with render_image hook and output webp images   */}}
+{{/* get file that matches the filename as specified as src=""  */}}
+{{ $src := .File }}
+{{ $alt := .Alt | safeHTML }}
+
+{{/* So for posts that aren't setup in the page bundles, it doesn't fail  */}}
+{{ if $src }}
+
+{{/* only use images smaller than or equal to the src (original) 
+image size, as Hugo will upscale small images */}}
+    
+    <img
+    alt="{{ $alt }}" title="{{ $alt }}" src="{{ $src.RelPermalink }}"
+    {{ if gt .Position 1 }}
+    loading="lazy"
+    {{ end }}
+    class="img-fluid">
+
+  
+  {{/* Since I do image-response class, the only thing that really 
+  matters is the height and width matches the image aspect ratio */}}
+
+  {{ end }}

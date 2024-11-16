@@ -1,0 +1,1 @@
+ cwebp -preset photo  -q 75 -m 6 -mt -hint photo -v -progress slider-9.jpg -o slider-9.webp

@@ -1,0 +1,174 @@
+######################## default configuration ####################
+baseURL = "https://rooted-in-code.com"
+theme = "somrat"
+# post pagination
+paginate = "6"
+# post excerpt
+summaryLength = "10"
+# disable language
+disableLanguages = [] # disable language from here
+# google analutics
+googleAnalytics = "G-3PTM6YVKQG" # example : UA-123-45
+# disqus short name
+disqusShortname = "" # get your shortname form here : https://disqus.com
+
+#################### default parameters ################################
+[params]
+favicon = "images/favicon.webp"
+# Meta data
+images = ["images/og_image.webp"]
+description = "a short experimental animated film by Nejc Trampuž, created with the assistance of artificial intelligence"
+author = "Nejc Trampuž"
+
+
+############################# Outputs ##############################
+[outputs]
+home = ["HTML"]
+
+[markup.goldmark.renderer]
+unsafe= true
+hardWraps = false
+xhtml = false
+
+############################# Plugins ##############################
+
+# CSS Plugins
+[[params.plugins.css]]
+link = "plugins/bootstrap/bootstrap.min.css"
+[[params.plugins.css]]
+link = "plugins/magnific-popup/magnific-popup.css"
+[[params.plugins.css]]
+link = "plugins/owl-carousel/owl.carousel.min.css"
+[[params.plugins.css]]
+link = "plugins/owl-carousel/owl.theme.default.min.css"
+[[params.plugins.css]]
+link = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+[[params.plugins.css]]
+link = "plugins/baguetteBox/baguetteBox.min.css"
+[[params.plugins.css]]
+link = "plugins/lite-youtube/lite-yt-embed.css"
+
+
+# JS Plugins
+[[params.plugins.js]]
+link = "plugins/jQuery/jquery.min.js"
+[[params.plugins.js]]
+link = "https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"
+[[params.plugins.js]]
+link = "plugins/bootstrap/bootstrap.min.js"
+[[params.plugins.js]]
+link = "plugins/wow.min.js"
+[[params.plugins.js]]
+link = "plugins/jquery.waypoints.min.js"
+[[params.plugins.js]]
+link = "plugins/magnific-popup/jquery.magnific-popup.min.js"
+[[params.plugins.js]]
+link = "plugins/owl-carousel/owl.carousel.min.js"
+[[params.plugins.js]]
+link = "plugins/baguetteBox/baguetteBox.min.js"
+[[params.plugins.js]]
+link = "plugins/lite-youtube/lite-yt-embed.js"
+
+
+# Preloader
+[params.preloader]
+enable = true
+preloader = "images/preloader.gif" # use jpg, png, svg or gif format.
+
+
+################################### English language #####################################
+[Languages.en]
+title = "Rooted In Code"
+languageName = "ENG"
+languageCode = "en-us"
+contentDir = "content/english"
+weight = 1 
+home = "Home"
+
+
+################# english navigation ##################
+
+# main menu
+
+[[Languages.en.menu.main]]
+name = "Trailer"
+pre = "#"
+url = "video-presentation"
+weight = 2
+
+[[Languages.en.menu.main]]
+name = "About"
+pre = "#"
+url = "about"
+weight = 3
+
+[[Languages.en.menu.main]]
+name = "Gallery"
+pre = "#"
+url = "gallery"
+weight = 4
+
+[[Languages.en.menu.main]]
+name = "Authors"
+pre = "#"
+url = "team"
+weight = 5
+
+[[Languages.en.menu.main]]
+name = "Info"
+pre = "#"
+url = "project-exhibitions"
+weight = 6
+
+
+
+################################### Slovene language #####################################
+[Languages.slo]
+title = "Zakoreninjeno v kodi"
+languageName = "SLO"
+languageCode = "slo-slo"
+contentDir = "content/slovenia"
+weight = 1
+home = "Domov"
+
+
+################# english navigation ##################
+
+# main menu
+
+[[Languages.slo.menu.main]]
+name = "Napovednik"
+pre = "/slo/#"
+url = "video-presentation"
+weight = 2
+
+[[Languages.slo.menu.main]]
+name = "O filmu"
+pre = "/slo/#"
+url = "about"
+weight = 3
+
+[[Languages.slo.menu.main]]
+name = "Galerija"
+pre = "/slo/#"
+url = "gallery"
+weight = 5
+
+[[Languages.slo.menu.main]]
+name = "Avtorji"
+pre = "/slo/#"
+url = "team"
+weight = 6
+
+[[Languages.slo.menu.main]]
+name = "Info"
+pre = "/slo/#"
+url = "project-exhibitions"
+weight = 7
+
+[imaging]
+  anchor = 'Smart'
+  bgColor = '#ffffff'
+  hint = 'photo'
+  quality = 90
+  resampleFilter = 'Box'
