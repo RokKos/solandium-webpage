@@ -90,11 +90,11 @@ home = "Home"
 
 # main menu
 
-[[Languages.en.menu.main]]
-name = "Trailer"
-pre = "#"
-url = "video-presentation"
-weight = 2
+##[[Languages.en.menu.main]]
+##name = "Trailer"
+##pre = "#"
+##url = "video-presentation"
+##weight = 2
 
 [[Languages.en.menu.main]]
 name = "About"
@@ -102,14 +102,14 @@ pre = "#"
 url = "about"
 weight = 3
 
-[[Languages.en.menu.main]]
-name = "Gallery"
-pre = "#"
-url = "gallery"
-weight = 4
+##[[Languages.en.menu.main]]
+##name = "Gallery"
+##pre = "#"
+##url = "gallery"
+##weight = 4
 
 [[Languages.en.menu.main]]
-name = "Authors"
+name = "Team"
 pre = "#"
 url = "team"
 weight = 5
@@ -136,26 +136,26 @@ home = "Domov"
 
 # main menu
 
-[[Languages.slo.menu.main]]
-name = "Napovednik"
-pre = "/slo/#"
-url = "video-presentation"
-weight = 2
+##[[Languages.slo.menu.main]]
+##name = "Napovednik"
+##pre = "/slo/#"
+##url = "video-presentation"
+##weight = 2
 
 [[Languages.slo.menu.main]]
-name = "O filmu"
+name = "O igri"
 pre = "/slo/#"
 url = "about"
 weight = 3
 
-[[Languages.slo.menu.main]]
-name = "Galerija"
-pre = "/slo/#"
-url = "gallery"
-weight = 5
+##[[Languages.slo.menu.main]]
+##name = "Galerija"
+##pre = "/slo/#"
+##url = "gallery"
+##weight = 5
 
 [[Languages.slo.menu.main]]
-name = "Avtorji"
+name = "Ekipa"
 pre = "/slo/#"
 url = "team"
 weight = 6
