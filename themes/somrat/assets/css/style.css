@@ -1805,8 +1805,12 @@ textarea.form-control::-webkit-input-placeholder,
 }
 
 @media (max-width: 767px) {
-  .header img {
-    width: 185px;
+  .title-image {
+    width: 90%;
+  }
+
+  .play-button {
+    width: 60%;
   }
 
 }
