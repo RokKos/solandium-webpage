@@ -25,6 +25,8 @@ team_core:
   image : "gasper.webp"
   role : "programer"
   description : "Gašper Štrumbelj (1996) je programer in razvijalec računalniških iger, ki primarno deluje v industriji mobilnih iger. Z močnim predznanjem na področju razvoja programske opreme je specializiran za ustvarjanje atraktivnih interaktivnih izkušenj, pri čemer uporablja svoje tehnično znanje za izboljšanje mehanike iger in optimizacijo zmogljivosti."
+  link : "https://linkedin.com/in/gasperstrumbelj"
+  link_icon: "far fa-share-square"
   text_color: "#8092ff"
 
 - name : "Brina Meze-Petrić"
