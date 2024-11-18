@@ -20,7 +20,7 @@ AI integration: Nejc Trampuž<br>
 <!-- section break -->
 AI tools: Meshy V3/4, GPT-4o mini, Midjourney V6.1, Adobe Firefly, Stable Audio V2, PopPop AI<br>
 
-Special thanks: Abandoned Plants Sanctuary, Rok Kos, Lena Penšek, Brin Žvan, Jure Gubanc, Jan Pogorelec, Helena Vrbanac, Ida Maria Villedsen, Andres Cabrero, Domen Karun<br>
+Special thanks: Abandoned Plants Sanctuary, Rok Kos, Lena Penšek, Brin Žvan, Jure Gubanc, Jan Pogorelec, Helena Vrbanac, Ida Maria Villedsen, Andres Cabrero, Domen Karun, Pia Klančar<br>
 
 Financial support: Ministry of Culture of the Republic of Slovenia<br>
 <!-- section break -->

@@ -2,26 +2,24 @@
 title : KOLOFON
 
 ---
-
-Dolžina filma: 13m 23s<br> 
-Leto produkcije: 2023<br>
-Premiera: 2024<br>
-
-Režija in produkcija: Nejc Trampuž<br>
-Zgodba, scenarij, snemalna knjiga: Nejc Trampuž + UI<br>
-Animacija: Nejc Trampuž + UI<br>
-Montaža in postprodukcija slike: Nejc Trampuž<br>
-
-Generiranje zvoka: Tim Kropivšek + UI<br>
-Oblikovanje zvoka in glasbe: Tim Kropivšek<br>
-Glas: Blaž Šef<br>
-Snemanje glasu: Anže Čanžek<br>
+Umetnik: Nejc Trampuž<br>
+Producent: Nejc Trampuž<br>
+Načrtovanje igre: Simone Cibrario, Nejc Trampuž<br>
+Programer: Gašper Štrumbelj<br>
+Generiranje 3D modelov: Nejc Trampuž + UI<br>
+3D oblikovalka: Brina Meze-Petrić<br>
+3D oblikovalec - asistent: Benjamin Čišić<br>
+Glasbena kompozicija in oblikovanje zvoka: Tim Kropivšek<br>
+Generiranje zvočnih efektov: Tim Kropivšek + UI<br>
+Sodelujoči glasbeniki:  Barbara Sokolovič, Urban Konjar, Chihiro Okada, Izak Jenko<br>
+Oblikovanje uporabniškega vmesnika: Nejc Trampuž<br>
+Oblikovanje uporabniške izkušnje: Nejc Trampuž, Simone Cibrario, Gašper Štrumbelj<br>
+Integracija UI: Nejc Trampuž<br>
 
 <!-- section break -->
-Svetovanje: Špela Frlic, Andrej Kamnik, Luka Tišler, Lena Penšek, Rok Kos, Jan Šimnovec, Vesna Skubic, Jure Gubanc<br>
-Prevod: Domen Kavčič<br>
+UI orodja: Meshy 3/4, GPT-4o mini, Midjourney V6.1, Adobe Firefly, Stable Audio V2, PopPop AI
 
-Orodja umetne inteligence: Pika Labs beta, Stable Diffusion, AnimateDiff v2 - ComfyUI na ThinkDiffusion, GPT 3.5 / 4.0, Midjourney v5.2, Stable Audio 1.0 / 1.1
+Posebne zahvale: Zavetišče za zavržene rastline, Rok Kos, Lena Penšek, Brin Žvan, Jure Gubanc, Jan Pogorelec, Helena Vrbanac, Ida Maria Villedsen, Andres Cabrero, Domen Karun, Pia Klančar
 
 Finančna podpora: Ministrstvo za kulturo Republike Slovenije
 <!-- section break -->
