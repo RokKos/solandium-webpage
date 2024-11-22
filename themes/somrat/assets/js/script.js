@@ -179,7 +179,7 @@
   });
 
   // Styling Menu on Scroll
-  $('.video-presentation').waypoint({
+  $('.about').waypoint({
     handler: function(direction) {
       // Fixing Menu after leaving Header Section
       $(".menu").toggleClass("menu-fix");
