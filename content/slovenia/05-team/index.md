@@ -1,5 +1,5 @@
 ---
-title : "AUTHORS"
+title : "EKIPA"
 
 team_lead_name: "Nejc Trampuž"
 team_lead_image: "nejc.webp"
@@ -9,7 +9,7 @@ team_lead_link: "https://instagram.com/nejctrampuz"
 team_lead_link_icon: "fab fa-instagram"
 team_lead_link_email: "nejc.trampuz@gmail.com"
 team_lead_link_icon_email: "far fa-envelope"
-team_lead_text_color: "#ef8273"
+team_lead_text_color: "#ffa785"
 
 
 team_core:
