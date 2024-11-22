@@ -1400,6 +1400,16 @@ textarea.form-control::-webkit-input-placeholder,
   padding-top: 5%;
 }
 
+/* Hover effect */
+.play-button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.play-button:hover img {
+  filter: brightness(1.2);
+}
+
 .row-title {
   display: flex;
   flex-wrap: wrap;
