@@ -3,31 +3,31 @@
 <!-- Start Header -->
 {{ with .GetPage "00-banner" }}
 <section class="header {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}} id="home">
-  <div class="owl-carousel owl-full-width owl-theme" id="background-slide">
-    <div class="slider">
-      {{partial "img-header-bg.html" (dict "File" (.Page.Resources.GetMatch .Params.bg_image) "Alt"
-      (.Params.bg_image_alt | markdownify) "Position" 0)}}
+    <div class="owl-carousel owl-full-width owl-theme" id="background-slide">
+        <div class="slider">
+            {{partial "img-header-bg.html" (dict "File" (.Page.Resources.GetMatch .Params.bg_image) "Alt"
+            (.Params.bg_image_alt | markdownify) "Position" 0)}}
+        </div>
     </div>
-  </div>
-  <div class="container">
-    <div class="row-title content">
-      <div class="title-image">
-        {{partial "img.html" (dict "File" (.Page.Resources.GetMatch .Params.center_image) "Alt"
-        (.Params.center_image_alt | markdownify))}}
-      </div>
+    <div class="container">
+        <div class="row-title content">
+            <div class="title-image">
+                {{partial "img.html" (dict "File" (.Page.Resources.GetMatch .Params.center_image) "Alt"
+                (.Params.center_image_alt | markdownify))}}
+            </div>
+        </div>
+        <div class="row-title content">
+            <a href="/unity_build.html" class="play-button">
+                {{partial "img.html" (dict "File" (.Page.Resources.GetMatch .Params.button_image) "Alt"
+                (.Params.button_image_alt | markdownify))}}
+            </a>
+        </div>
+        <div class="row content">
+            <div class="arrow-down">
+                <img class="img-fluid image scale-on-hover lozad" src="/images/Arrow_down.png">
+            </div>
+        </div>
     </div>
-    <div class="row-title content">
-      <a href="/unity_build.html" class="play-button">
-        {{partial "img.html" (dict "File" (.Page.Resources.GetMatch .Params.button_image) "Alt"
-        (.Params.button_image_alt | markdownify))}}
-      </a>
-    </div>
-    <div class="row content">
-      <div class="arrow-down">
-        <img class="img-fluid image scale-on-hover lozad" src="/images/Arrow_down.png">
-      </div>
-    </div>
-  </div>
 
 
 
@@ -37,73 +37,73 @@
 
 <!-- Start Menu -->
 <section class="menu" id="menu">
-  <nav>
-    <!-- desktop-menu -->
-    <div class="menu-container no-marginLR">
-      <div class="container">
-        <div class="row no-marginLR">
-          <ul class="desktop-menu list-inline mb-0" id="desktop-menu">
-            {{ range site.Menus.main }}
-            <li class="menu-item hvr-underline-from-left 1"><a
-                href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">{{
-                .Name }}</a>
-            </li>
-            {{ end }}
-            <!-- Language List -->
-            {{- if .IsTranslated }}
-            {{ $pageLang := .Page.Lang}}
-            {{ range $.Site.Home.AllTranslations }}
-            {{ if eq $pageLang .Lang}}
+    <nav>
+        <!-- desktop-menu -->
+        <div class="menu-container no-marginLR">
+            <div class="container">
+                <div class="row no-marginLR">
+                    <ul class="desktop-menu list-inline mb-0" id="desktop-menu">
+                        {{ range site.Menus.main }}
+                        <li class="menu-item hvr-underline-from-left 1"><a
+                                href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">{{
+                                .Name }}</a>
+                        </li>
+                        {{ end }}
+                        <!-- Language List -->
+                        {{- if .IsTranslated }}
+                        {{ $pageLang := .Page.Lang}}
+                        {{ range $.Site.Home.AllTranslations }}
+                        {{ if eq $pageLang .Lang}}
 
-            {{ else }}
-            <li class="menu-item hvr-underline-from-left 1">
-              <a href="{{ .Permalink }}">{{- .Language.LanguageName -}}</a>
-            </li>
-            {{ end }}
-            {{ end }}
-            {{ end }}
-          </ul>
+                        {{ else }}
+                        <li class="menu-item hvr-underline-from-left 1">
+                            <a href="{{ .Permalink }}">{{- .Language.LanguageName -}}</a>
+                        </li>
+                        {{ end }}
+                        {{ end }}
+                        {{ end }}
+                    </ul>
+                </div>
+            </div>
+            <!-- /desktop-menu -->
+
+            <!-- mobile-menu -->
+            <div class="mobile-menu">
+                <a class="menu-link">
+                    <div class="mobile-menu-nav">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                </a>
+            </div>
+            <div class="menu-slider">
+                <nav>
+                    <ul class="mobile-menu-list">
+                        {{ range site.Menus.main }}
+                        <li class="hvr-shutter-out-vertical mobile-menu-item 1"><a
+                                href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">{{
+                                .Name }}</a>
+                        </li>
+                        {{ end }}
+                        <!-- Language List -->
+                        {{- if .IsTranslated }}
+                        {{ $pageLang := .Page.Lang}}
+                        {{ range $.Site.Home.AllTranslations }}
+                        {{ if eq $pageLang .Lang}}
+
+                        {{ else }}
+                        <li class="hvr-shutter-out-vertical mobile-menu-item 1">
+                            <a href="{{ .Permalink }}">{{- .Language.LanguageName -}}</a>
+                        </li>
+                        {{ end }}
+                        {{ end }}
+                        {{ end }}
+                    </ul>
+                </nav>
+            </div>
         </div>
-      </div>
-      <!-- /desktop-menu -->
-
-      <!-- mobile-menu -->
-      <div class="mobile-menu">
-        <a class="menu-link">
-          <div class="mobile-menu-nav">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </a>
-      </div>
-      <div class="menu-slider">
-        <nav>
-          <ul class="mobile-menu-list">
-            {{ range site.Menus.main }}
-            <li class="hvr-shutter-out-vertical mobile-menu-item 1"><a
-                href="{{if .Pre}}{{site.BaseURL | absLangURL}}{{.Pre}}{{ .URL }}{{else}}{{.URL | absLangURL}}{{end}}">{{
-                .Name }}</a>
-            </li>
-            {{ end }}
-            <!-- Language List -->
-            {{- if .IsTranslated }}
-            {{ $pageLang := .Page.Lang}}
-            {{ range $.Site.Home.AllTranslations }}
-            {{ if eq $pageLang .Lang}}
-
-            {{ else }}
-            <li class="hvr-shutter-out-vertical mobile-menu-item 1">
-              <a href="{{ .Permalink }}">{{- .Language.LanguageName -}}</a>
-            </li>
-            {{ end }}
-            {{ end }}
-            {{ end }}
-          </ul>
-        </nav>
-      </div>
-    </div>
-  </nav>
+    </nav>
 </section>
 <!-- End Menu -->
 
@@ -124,33 +124,33 @@
 <!-- Start About project -->
 {{ with .GetPage "02-about" }}
 <section class="about {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}} id="about">
-  <div class="container">
-    <div class="row no-marginLR">
-      {{- $sectionDelimiter := "<!-- Small Text -->" -}}
-      {{- $rawContentSections := split .RawContent $sectionDelimiter -}}
-      {{- if gt (len $rawContentSections) 1 -}}
-      <div class="text-holder wow fadeInUp" data-wow-duration="1.5s">
-        <div class="about-text d-flex align-self-center">
-          <div class="content">{{ index $rawContentSections 0 | .RenderString | markdownify | emojify }}</div>
+    <div class="container">
+        <div class="row no-marginLR">
+            {{- $sectionDelimiter := "<!-- Small Text -->" -}}
+            {{- $rawContentSections := split .RawContent $sectionDelimiter -}}
+            {{- if gt (len $rawContentSections) 1 -}}
+            <div class="text-holder wow fadeInUp" data-wow-duration="1.5s">
+                <div class="about-text d-flex align-self-center">
+                    <div class="content">{{ index $rawContentSections 0 | .RenderString | markdownify | emojify }}</div>
+                </div>
+                <div class="about-text-big align-self-center text-center">
+                    {{ index $rawContentSections 1 | .RenderString | markdownify | emojify }}
+                </div>
+                {{ end }}
+            </div>
         </div>
-        <div class="about-text-big align-self-center text-center">
-          {{ index $rawContentSections 1 | .RenderString | markdownify | emojify }}
+
+        <div class="about-play-button wow fadeInUp" data-wow-duration="1.5s">
+            {{ with .Params.button }}
+            {{ if .enable }}
+            <a href="/unity_build.html" class="download-cv hvr-icon-wobble-horizontal"> {{ .label }} &nbsp; <i
+                    class="fa fa-arrow-right hvr-icon"></i></a>
+            {{ end }}
+            {{ end }}
+
         </div>
-        {{ end }}
-      </div>
-    </div>
-
-    <div class="about-play-button wow fadeInUp" data-wow-duration="1.5s">
-      {{ with .Params.button }}
-      {{ if .enable }}
-      <a href="/unity_build.html" class="download-cv hvr-icon-wobble-horizontal"> {{ .label }} &nbsp; <i
-          class="fa fa-arrow-right hvr-icon"></i></a>
-      {{ end }}
-      {{ end }}
 
     </div>
-
-  </div>
 </section>
 {{ end }}
 <!-- End About project -->
@@ -158,19 +158,19 @@
 <!-- book -->
 {{ with .GetPage "04-book" }}
 <section class="book {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}} id="book">
-  <div class="container">
-    <div class="row no-marginLR book-holder">
-      <div class="book-text">
-      </div>
-      <div class="owl-carousel full-width-img  wow fadeInUp" data-wow-duration="1.5s">
-        {{ range .Page.Resources }}
-        <div class="testimonial-holder">
-          {{partial "img.html" (dict "File" . "Alt" .)}}
+    <div class="container">
+        <div class="row no-marginLR book-holder">
+            <div class="book-text">
+            </div>
+            <div class="owl-carousel full-width-img  wow fadeInUp" data-wow-duration="1.5s">
+                {{ range .Page.Resources }}
+                <div class="testimonial-holder">
+                    {{partial "img.html" (dict "File" . "Alt" .)}}
+                </div>
+                {{ end }}
+            </div>
         </div>
-        {{ end }}
-      </div>
     </div>
-  </div>
 </section>
 {{ end }}
 <!-- end book -->
@@ -180,131 +180,136 @@
 <!-- Start team -->
 {{ with .GetPage "05-team"}}
 <section class="team {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}} id="team">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-6 d-flex align-self-center">
-        <div class="wow fadeInUp" data-wow-duration="1.5s">
-          <div class="team-text">
-            <h1>{{ .Title | markdownify }}</h1>
-          </div>
-        </div>
-      </div>
-      <div class="col-12 mb-5 pb-5 ">
+    <div class="container">
         <div class="row">
-          <div class="w-100">&nbsp;</div>
-
-          <div class="col-lg-6 col-md-6 col-sm-12">
-            {{partial "img.html" (dict "File" (.Page.Resources.GetMatch .Params.team_lead_image) "Alt"
-            (.Params.team_lead_name | markdownify))}}
-          </div>
-          <div class="col-lg-6 col-md-6">
-            <div style="color:{{ .Params.team_lead_text_color }}">
-              <h2>
-                <div class="team-lead-name">{{ .Params.team_lead_name | markdownify }}</div>
-              </h2>
-              <p class="team-lead-role">{{ .Params.team_lead_role | markdownify }}</p>
-              <h6 class="team-lead-description">{{ .Params.team_lead_description | markdownify }}</h6>
-              <div style="line-height:1">
-                <i class="{{.Params.team_lead_link_icon}} team-lead-description"></i>&nbsp;<a
-                  href="{{ .Params.team_lead_link }}" class="team-lead-description"
-                  style="color:{{ .Params.team_lead_text_color }}">{{ .Params.team_lead_link | replaceRE "https://" "" |
-                  replaceRE "instagram.com/" "" }}</a>
-                <br>
-                <i class="{{.Params.team_lead_link_icon_email}} team-lead-description"></i>&nbsp;<a
-                  href="{{ .Params.team_lead_link_email }}" class="team-lead-description"
-                  style="color:{{ .Params.team_lead_text_color }}">{{ .Params.team_lead_link_email | replaceRE
-                  "https://" "" | replaceRE "instagram.com/" "" }}</a>
-              </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 d-flex align-self-center">
+                <div class="wow fadeInUp" data-wow-duration="1.5s">
+                    <div class="team-text">
+                        <h1>{{ .Title | markdownify }}</h1>
+                    </div>
+                </div>
             </div>
-          </div>
+            <div class="col-12 mb-5 pb-5 ">
+                <div class="row">
+                    <div class="w-100">&nbsp;</div>
+
+                    <div class="col-lg-6 col-md-6 col-sm-12">
+                        {{partial "img.html" (dict "File" (.Page.Resources.GetMatch .Params.team_lead_image) "Alt"
+                        (.Params.team_lead_name | markdownify))}}
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div style="color:{{ .Params.team_lead_text_color }}">
+                            <h2>
+                                <div class="team-lead-name">{{ .Params.team_lead_name | markdownify }}</div>
+                            </h2>
+                            <p class="team-lead-role">{{ .Params.team_lead_role | markdownify }}</p>
+                            <h6 class="team-lead-description">{{ .Params.team_lead_description | markdownify }}</h6>
+                            <div style="line-height:1">
+                                <i class="{{.Params.team_lead_link_icon}} team-lead-description"></i>&nbsp;<a
+                                    href="{{ .Params.team_lead_link }}" class="team-lead-description"
+                                    style="color:{{ .Params.team_lead_text_color }}">{{ .Params.team_lead_link |
+                                    replaceRE "https://" "" |
+                                    replaceRE "instagram.com/" "" }}</a>
+                                <br>
+                                <i class="{{.Params.team_lead_link_icon_email}} team-lead-description"></i>&nbsp;<a
+                                    href="{{ .Params.team_lead_link_email }}" class="team-lead-description"
+                                    style="color:{{ .Params.team_lead_text_color }}">{{ .Params.team_lead_link_email |
+                                    replaceRE
+                                    "https://" "" | replaceRE "instagram.com/" "" }}</a>
+                            </div>
+                        </div>
+                    </div>
 
 
-        </div>
-      </div>
-
-      {{ $teamPhotoResource := .Page.Resources}}
-      {{ $teamCore := .Params.team_core}}
-      {{ range $teamCore }}
-      <div class="col-lg-4 col-md-5 col-sm-12 mb-5 ">
-        <div class="card border-0">
-          <div class="mb-4">
-            {{partial "img.html" (dict "File" ($teamPhotoResource.GetMatch .image) "Alt" (.name | markdownify))}}
-          </div>
-          <div class="card-body p-0">
-            <div style="color:{{ .text_color }}">
-              <h3 class="team-member-name">{{ .name | markdownify }}</h3>
-              <p class="team-member-role">{{ .role | markdownify }}</p>
-              <h6 class="team-member-description">{{ .description | markdownify }}</h6>
-              <i class="{{.link_icon}} team-member-description"></i>&nbsp;<a href="{{ .link }}"
-                class="team-member-description" style="color:{{ .text_color }}">{{ .link | replaceRE "https://" "" |
-                replaceRE "instagram.com/" "" }}</a>
+                </div>
             </div>
-          </div>
-        </div>
-      </div>
-      {{ end }}
-    </div>
-    <div class="row">
-      <div class="w-100">
-        <div class="col"></div>&nbsp;
-      </div>
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="content wow fadeInUp" data-wow-duration="1.5s">
-          <div class="text-center">
-            <a href="{{site.BaseURL | absLangURL}}{{ .Params.OthersURL }}">{{ .Content | markdownify | emojify }}</a>
-          </div>
 
+            {{ $teamPhotoResource := .Page.Resources}}
+            {{ $teamCore := .Params.team_core}}
+            {{ range $teamCore }}
+            <div class="col-lg-4 col-md-5 col-sm-12 mb-5 ">
+                <div class="card border-0">
+                    <div class="mb-4">
+                        {{partial "img.html" (dict "File" ($teamPhotoResource.GetMatch .image) "Alt" (.name |
+                        markdownify))}}
+                    </div>
+                    <div class="card-body p-0">
+                        <div style="color:{{ .text_color }}">
+                            <h3 class="team-member-name">{{ .name | markdownify }}</h3>
+                            <p class="team-member-role">{{ .role | markdownify }}</p>
+                            <h6 class="team-member-description">{{ .description | markdownify }}</h6>
+                            <i class="{{.link_icon}} team-member-description"></i>&nbsp;<a href="{{ .link }}"
+                                class="team-member-description" style="color:{{ .text_color }}">{{ .link | replaceRE
+                                "https://" "" |
+                                replaceRE "instagram.com/" "" }}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
         </div>
-      </div>
+        <div class="row">
+            <div class="w-100">
+                <div class="col"></div>&nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="content wow fadeInUp" data-wow-duration="1.5s">
+                    <div class="text-center">
+                        <a href="{{site.BaseURL | absLangURL}}{{ .Params.OthersURL }}">{{ .Content | markdownify |
+                            emojify }}</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  </div>
+    </div>
 </section>
 {{ end }}
 <!-- End team -->
 
-<!-- {{ with .GetPage "gallery" }}
+{{ with .GetPage "gallery" }}
 
 <section class="gallery-block grid-gallery" id=gallery>
-  <div class="container">
-    <div class="row no-gutters">
+    <div class="container">
+        <div class="row no-gutters">
 
-      {{ $galleryPhotoResource := .Page.Resources}}
-      {{ range $index, $element := .Params.GalleryInfo }}
+            {{ $galleryPhotoResource := .Page.Resources}}
+            {{ range $index, $element := .Params.GalleryInfo }}
 
-      <div class="col-4 item">
-        <div class="wow fadeInUp" data-wow-duration="1.5s">
-          {{ $Photo := $galleryPhotoResource.GetMatch .ImageName }}
-          <a class="lightbox" href="{{$Photo.RelPermalink}}" data-caption="{{.ImageCaption}}">
-            <img class="img-fluid image scale-on-hover lozad" src="{{$Photo.RelPermalink}}">
-            <div class="overlay">
-              <div class="overlay-text">{{.ImageOverlay}}</div>
+            <div class="col-4 item">
+                <div class="wow fadeInUp" data-wow-duration="1.5s">
+                    {{ $Photo := $galleryPhotoResource.GetMatch .ImageName }}
+                    <a class="lightbox" href="{{$Photo.RelPermalink}}" data-caption="{{.ImageCaption}}">
+                        <img class="img-fluid image scale-on-hover lozad" src="{{$Photo.RelPermalink}}">
+                        <div class="overlay">
+                            <div class="overlay-text">{{.ImageOverlay}}</div>
+                        </div>
+                    </a>
+                </div>
             </div>
-          </a>
+            {{end}}
         </div>
-      </div>
-      {{end}}
     </div>
-  </div>
 </section>
-{{ end }} -->
+{{ end }}
 
 <!-- Start PROJECT EXHIBITIONS -->
 {{ with .GetPage "06-project-exhibitions"}}
 <section class="project-exhibitions {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}}
-  id="project-exhibitions">
-  <div class="container">
-    <div class="row no-marginLR">
-      <h1 class="wow fadeInUp" data-wow-duration="1.5s">
-        <div class="kolofon-text-h1">{{ .Title | markdownify }}</div>
-      </h1>
-      <div class="content wow fadeInUp" data-wow-duration="1.5s">
-        <div class="kolofon-text">{{ .Content | markdownify | emojify }}</div>
-      </div>
+    id="project-exhibitions">
+    <div class="container">
+        <div class="row no-marginLR">
+            <h1 class="wow fadeInUp" data-wow-duration="1.5s">
+                <div class="kolofon-text-h1">{{ .Title | markdownify }}</div>
+            </h1>
+            <div class="content wow fadeInUp" data-wow-duration="1.5s">
+                <div class="kolofon-text">{{ .Content | markdownify | emojify }}</div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 {{ end }}
 <!-- End PROJECT EXHIBITIONS -->
@@ -349,42 +354,44 @@
 <!-- Start kolofon -->
 {{ with .GetPage "09-kolofon"}}
 <section class="kolofon {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}} id="kolofon">
-  <div class="container">
-    <div class="row no-marginLR">
-      <h1 class="wow fadeInUp" data-wow-duration="1.5s">
-        <div class="kolofon-text-h1">{{ .Title | markdownify }}</div>
-      </h1>
-    </div>
-    <div class="row">
-      {{- $sectionDelimiter := "<!-- section break -->" -}}
-      {{- $rawContentSections := split .RawContent $sectionDelimiter -}}
-      {{- if gt (len $rawContentSections) 1 -}}
-      <div class="col-lg-6 col-md-6 col-sm-6">
-        <div class="content wow fadeInUp" data-wow-duration="1.5s">
-          <div class="kolofon-text">{{ index $rawContentSections 0 | .RenderString | markdownify | emojify }}</div>
+    <div class="container">
+        <div class="row no-marginLR">
+            <h1 class="wow fadeInUp" data-wow-duration="1.5s">
+                <div class="kolofon-text-h1">{{ .Title | markdownify }}</div>
+            </h1>
         </div>
-      </div>
-      <div class="col-lg-6 col-sm-6 col-9">
-        <div class="content wow fadeInUp" data-wow-duration="1.5s">
-          <div class="kolofon-text">{{ index $rawContentSections 1 | markdownify | emojify }}</div>
-          {{ range .Page.Resources }}
-          {{partial "img.html" (dict "File" . "Alt" .)}}
-          {{ end }}
-        </div>
-      </div>
+        <div class="row">
+            {{- $sectionDelimiter := "<!-- section break -->" -}}
+            {{- $rawContentSections := split .RawContent $sectionDelimiter -}}
+            {{- if gt (len $rawContentSections) 1 -}}
+            <div class="col-lg-6 col-md-6 col-sm-6">
+                <div class="content wow fadeInUp" data-wow-duration="1.5s">
+                    <div class="kolofon-text">{{ index $rawContentSections 0 | .RenderString | markdownify | emojify }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6 col-9">
+                <div class="content wow fadeInUp" data-wow-duration="1.5s">
+                    <div class="kolofon-text">{{ index $rawContentSections 1 | markdownify | emojify }}</div>
+                    {{ range .Page.Resources }}
+                    {{partial "img.html" (dict "File" . "Alt" .)}}
+                    {{ end }}
+                </div>
+            </div>
 
-    </div>
-    <div class="row">
-    </div>
-    <div class="row">
-      <div class="col">
-        <div class="content wow fadeInUp" data-wow-duration="1.5s">
-          <div class="kolofon-text">{{ index $rawContentSections 2 | .RenderString | markdownify | emojify }}</div>
         </div>
-      </div>
+        <div class="row">
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="content wow fadeInUp" data-wow-duration="1.5s">
+                    <div class="kolofon-text">{{ index $rawContentSections 2 | .RenderString | markdownify | emojify }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{- end -}}
     </div>
-    {{- end -}}
-  </div>
 </section>
 {{ end }}
 <!-- End kolofon -->
