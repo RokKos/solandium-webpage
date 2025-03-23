@@ -331,24 +331,24 @@
 {{ end }}-->
 <!-- End AWARDS-->
 <!-- Start media-coverage -->
-<!--{{ with .GetPage "08-media-coverage"}}
+{{ with .GetPage "08-media-coverage"}}
 <section class="media-coverage {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}}
-  id="media-coverage">
-  <div class="container">
-    <div class="row no-marginLR">
-      <h1 class="wow fadeInUp" data-wow-duration="1.5s">
-        <div class="kolofon-text-h1">{{ .Title | markdownify }}</div>
-      </h1>
+    id="media-coverage">
+    <div class="container">
+        <div class="row no-marginLR">
+            <h1 class="wow fadeInUp" data-wow-duration="1.5s">
+                <div class="kolofon-text-h1">{{ .Title | markdownify }}</div>
+            </h1>
+        </div>
+        <div class="row no-marginLR">
+            <div class="content wow fadeInUp" data-wow-duration="1.5s">
+                <div class="kolofon-text">{{ .Content | markdownify | emojify }}</div>
+            </div>
+        </div>
     </div>
-    <div class="row no-marginLR">
-      <div class="content wow fadeInUp" data-wow-duration="1.5s">
-        <div class="kolofon-text">{{ .Content | markdownify | emojify }}</div>
-      </div>
     </div>
-  </div>
-  </div>
 </section>
-{{ end }}-->
+{{ end }}
 <!-- End media-coverage -->
 
 <!-- Start kolofon -->
