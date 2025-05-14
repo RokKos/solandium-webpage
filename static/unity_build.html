@@ -192,7 +192,6 @@
       if (videoPlayerOverlay && videoElement && currentUnityCanvas) {
         console.log("Attempting to hide video player and resume game.");
         videoElement.pause();
-        videoElement.removeAttribute('src'); // Clear the source
         videoElement.load(); // Important to reset the video element and stop buffering/downloads
 
         videoPlayerOverlay.style.display = 'none'; // Hide video player
