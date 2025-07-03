@@ -1,4 +1,4 @@
 ---
 title : "AWARDS"
 ---
-1. JURY AWARD: <a href="https://kurzklub.com/selections/blossom-edition-selection-24/">Kurz Klub 2024</a>   
+1. HONOURABLE MENTION: <a href="https://www.instagram.com/p/DLW8vOJoX9t/">Social Art Award 2025</a>   
