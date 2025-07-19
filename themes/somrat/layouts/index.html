@@ -315,20 +315,20 @@
 <!-- End PROJECT EXHIBITIONS -->
 
 <!-- Start AWARDS -->
-<!--{{ with .GetPage "06-2-awards"}}
+{{ with .GetPage "06-2-awards"}}
 <section class="project-exhibitions {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}} id="awards">
-  <div class="container">
-    <div class="no-marginLR">
-      <h1 class="wow fadeInUp" data-wow-duration="1.5s">
-        <div class="kolofon-text-h1">{{ .Title | markdownify }}</div>
-      </h1>
-      <div class="content wow fadeInUp" data-wow-duration="1.5s">
-        <div class="kolofon-text">{{ .Content | markdownify | emojify }}</div>
-      </div>
+    <div class="container">
+        <div class="no-marginLR">
+            <h1 class="wow fadeInUp" data-wow-duration="1.5s">
+                <div class="kolofon-text-h1">{{ .Title | markdownify }}</div>
+            </h1>
+            <div class="content wow fadeInUp" data-wow-duration="1.5s">
+                <div class="kolofon-text">{{ .Content | markdownify | emojify }}</div>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
-{{ end }}-->
+{{ end }}
 <!-- End AWARDS-->
 <!-- Start media-coverage -->
 {{ with .GetPage "08-media-coverage"}}
