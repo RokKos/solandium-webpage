@@ -175,6 +175,20 @@
 {{ end }}
 <!-- end book -->
 
+<!-- Start Predstavitveni video -->
+{{ with .GetPage "01-video-presentation" }}
+<section class="video-presentation {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}}
+    id="video-presentation">
+    <div class="wow fadeInUp" data-wow-duration="1.5s">
+        <div class="full-width-video">
+            <lite-youtube videoid="s7JqRkJHHv8"
+                playlabel="SOLANDIUM 2063: experimental solarpunk AI computer game (TRAILER) (Nejc Trampuž)"></lite-youtube>
+        </div>
+    </div>
+</section>
+{{ end }}
+<!-- End Predstavitveni video -->
+
 
 
 <!-- Start team -->
