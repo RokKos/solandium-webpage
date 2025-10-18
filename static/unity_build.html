@@ -229,8 +229,35 @@
         console.log("Video ended, automatically hiding player and resuming game.");
         hideVideoPlayerAndResumeGame();
       });
+
+      // Event listener for when the video *starts playing*
+      myVideoPlayerElement.addEventListener('playing', function () {
+        console.log("Video has started playing, attempting to exit full-screen.");
+        exitFullScreenMode();
+      });
+
     } else {
       console.error("Video element 'myVideoPlayer' not found for attaching 'ended' event listener.");
+    }
+
+    // Function to exit full-screen mode (with cross-browser support)
+    function exitFullScreenMode() {
+      // Check if the document is currently in full-screen mode
+      if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
+        console.log("Exiting full-screen...");
+        if (document.exitFullscreen) {
+          document.exitFullscreen().catch(err => console.error(`Error exiting full-screen: ${err.message}`));
+        } else if (document.webkitExitFullscreen) { /* Safari */
+          document.webkitExitFullscreen();
+        } else if (document.mozCancelFullScreen) { /* Firefox */
+          document.mozCancelFullScreen();
+        } else if (document.msExitFullscreen) { /* IE/Edge */
+          document.msExitFullscreen();
+        }
+      } else {
+        // This will fire if the game was *not* in full-screen to begin with
+s       console.log("Video playing, but not in full-screen mode.");
+      }
     }
 
     // Function to localize the continue button
