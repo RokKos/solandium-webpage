@@ -119,22 +119,21 @@
 <body style="position: absolute; top: 0; width: 100%; height: 100%; margin: 0; overflow: hidden;">
   <canvas id="unity-canvas" width="100%" height="100%" tabindex="-1"
     style="width: 100%; height: 100%; position: fixed; background: #231F20; display: none;"></canvas>
-  <div id="loadingOverlay">
-    <div id="loadingBar">
-      <div id="progressBar"></div>
-    </div>
-    <div id="loadingText">Loading... 0%</div>
-  </div>
+    <div id="loadingOverlay">
+        <div id="loadingBar">
+            <div id="progressBar"></div>
+          </div>
+        <div id="loadingText">Loading... 0%</div>
+      </div>
 
-  <div id="videoPlayerOverlay">
-    <video id="myVideoPlayer" src="StreamingAssets/SolandiumVideo.mp4" playsinline controlslist="nofullscreen"
-      disablepictureinpicture>
-      Your browser does not support the video tag.
-    </video>
-    <button id="continueButton">Continue</button>
-  </div>
+    <div id="videoPlayerOverlay">
+            <video id="myVideoPlayer" src="StreamingAssets/SolandiumVideo.mp4">
+            Your browser does not support the video tag.
+          </video>
+      </div>
 
   <script src="Build/v0.1.1.loader.js"></script>
+
   <script>
     let unityGameInstance = null; // To store the Unity instance
 
@@ -193,7 +192,6 @@
       const videoPlayerOverlay = document.getElementById('videoPlayerOverlay');
       const videoElement = document.getElementById('myVideoPlayer');
       const currentUnityCanvas = document.getElementById('unity-canvas'); // Re-fetch
-
       if (videoPlayerOverlay && videoElement && currentUnityCanvas) {
         console.log("Attempting to hide video player and resume game.");
         videoElement.pause();
@@ -202,7 +200,7 @@
         videoPlayerOverlay.style.display = 'none'; // Hide video player
         currentUnityCanvas.style.display = 'block'; // Show Unity canvas
 
-         if (unityGameInstance) unityGameInstance.SendMessage('GameManager', 'ResumeFromVideo');
+        if (unityGameInstance) unityGameInstance.SendMessage('GameManager', 'ResumeFromVideo');
 
         // Try to re-focus the Unity canvas so it can receive input
         currentUnityCanvas.focus().catch(e => console.warn("Could not focus Unity canvas:", e));
@@ -211,76 +209,43 @@
       }
     }
 
-    // Attach the event listener to the Continue button
-    // This code runs after the button HTML is defined in the document.
-    const continueButton = document.getElementById('continueButton');
-    if (continueButton) {
-      continueButton.onclick = hideVideoPlayerAndResumeGame;
-    } else {
-      // This might happen if the script runs before the DOM element is fully parsed,
-      // though unlikely with script at the end of body.
-      // A DOMContentLoaded listener could be used as a fallback if issues arise.
-      console.error("Continue button not found for event attachment.");
-    }
 
     const myVideoPlayerElement = document.getElementById('myVideoPlayer');
     if (myVideoPlayerElement) {
-      myVideoPlayerElement.addEventListener('ended', function() {
+      myVideoPlayerElement.addEventListener('ended', function () {
         console.log("Video ended, automatically hiding player and resuming game.");
         hideVideoPlayerAndResumeGame();
       });
 
-      // Event listener for when the video *starts playing*
+
       myVideoPlayerElement.addEventListener('playing', function () {
-        console.log("Video has started playing, attempting to exit full-screen.");
-        exitFullScreenMode();
+        console.log("Video has started playing, attempting to ENTER full-screen.");
+        requestFullScreenMode(myVideoPlayerElement); // Pass the video element
       });
 
     } else {
-      console.error("Video element 'myVideoPlayer' not found for attaching 'ended' event listener.");
+      console.error("Video element 'myVideoPlayer' not found for attaching event listeners.");
     }
 
-    // Function to exit full-screen mode (with cross-browser support)
-    function exitFullScreenMode() {
-      // Check if the document is currently in full-screen mode
-      if (document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement) {
-        console.log("Exiting full-screen...");
-        if (document.exitFullscreen) {
-          document.exitFullscreen().catch(err => console.error(`Error exiting full-screen: ${err.message}`));
-        } else if (document.webkitExitFullscreen) { /* Safari */
-          document.webkitExitFullscreen();
-        } else if (document.mozCancelFullScreen) { /* Firefox */
-          document.mozCancelFullScreen();
-        } else if (document.msExitFullscreen) { /* IE/Edge */
-          document.msExitFullscreen();
+
+    function requestFullScreenMode(element) {
+      // Check if full-screen is not already active
+      if (!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement)) {
+        console.log("Entering full-screen...");
+        if (element.requestFullscreen) {
+          element.requestFullscreen().catch(err => console.error(`Error entering full-screen: ${err.message}`));
+        } else if (element.webkitRequestFullscreen) { /* Safari */
+          element.webkitRequestFullscreen();
+        } else if (element.mozRequestFullScreen) { /* Firefox */
+          element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) { /* IE/Edge */
+          element.msRequestFullscreen();
         }
       } else {
-        // This will fire if the game was *not* in full-screen to begin with
-        console.log("Video playing, but not in full-screen mode.");
+        console.log("Already in full-screen mode.");
       }
     }
 
-    // Function to localize the continue button
-    function localizeContinueButton() {
-        const button = document.getElementById('continueButton');
-        if (button) {
-            // navigator.language provides the preferred language of the user, usually the first language in the browser's language settings.
-            // e.g., "sl-SI", "sl", "en-US", "en-GB", "en"
-            const userLang = navigator.language || navigator.userLanguage; // userLanguage for older IE versions
-
-            if (userLang && (userLang.toLowerCase().startsWith('sl'))) { // Check if language code starts with 'sl' (for Slovene)
-                button.textContent = "Nadaljuj";
-            } else {
-                button.textContent = "Continue"; // Default to English
-            }
-        } else {
-            console.error("Continue button not found for localization.");
-        }
-    }
-
-    // Call the localization function after the DOM elements are available.
-    // Since this script is at the end of the body, the button element should exist.
-    localizeContinueButton();
   </script>
 </body>
 
