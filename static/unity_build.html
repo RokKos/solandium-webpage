@@ -218,10 +218,6 @@
       });
 
 
-      myVideoPlayerElement.addEventListener('playing', function () {
-        console.log("Video has started playing, attempting to ENTER full-screen.");
-        requestFullScreenMode(myVideoPlayerElement); // Pass the video element
-      });
 
     } else {
       console.error("Video element 'myVideoPlayer' not found for attaching event listeners.");
