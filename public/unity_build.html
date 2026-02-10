@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="shortcut icon" href="/images/favicon.webp" type="image/x-icon">
+  <link rel="icon" href="/images/favicon.webp" type="image/x-icon">
+
+  <title> Solandium 2063</title>
+  <style>
+    html,
+    body,
+    unity-canvas {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+
+    unity-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      background: black; /* Default, overridden by #unity-canvas specific later */
+    }
+
+    #loadingOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 9999;
+    }
+
+    #loadingBar {
+      width: 80%;
+      max-width: 400px;
+      height: 20px;
+      background-color: #555;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    #progressBar {
+      width: 0%;
+      height: 100%;
+      background-color: #ffa785;
+      border-radius: 10px;
+    }
+
+    #loadingText {
+      color: white;
+      font-family: 'kode-mono', sans-serif;
+      font-size: 22px;
+    }
+
+    @font-face {
+      font-family: 'kode-mono';
+      src: url('/fonts/KodeMono-VariableFont_wght.woff2') format('woff2');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Styles for the Video Player */
+    #videoPlayerOverlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 10000; /* Above loading overlay and Unity canvas */
+      display: none; /* Hidden by default */
+      justify-content: center;
+      pointer-events: none;
+      align-items: center;
+    }
+
+    #myVideoPlayer {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      /* show the entire video with black bars */
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body style="position: absolute; top: 0; width: 100%; height: 100%; margin: 0; overflow: hidden;">
+  <canvas id="unity-canvas" width="100%" height="100%" tabindex="-1"
+    style="width: 100%; height: 100%; position: fixed; background: #231F20; display: none;"></canvas>
+  <div id="loadingOverlay">
+    <div id="loadingBar">
+      <div id="progressBar"></div>
+    </div>
+    <div id="loadingText">Loading... 0%</div>
+  </div>
+
+  <div id="videoPlayerOverlay">
+    <video id="myVideoPlayer" src="StreamingAssets/SolandiumVideo.mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script src="Build/v0.1.1.loader.js"></script>
+  <script>
+    let unityGameInstance = null; // To store the Unity instance
+
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      // Mobile device style: fill the whole browser client area with the game canvas:
+      var meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+
+      var canvas = document.querySelector("#unity-canvas");
+      // Style adjustments for mobile were already in your script for canvas, keeping them.
+      // Ensure they don't conflict with the display:none/block logic.
+      // The fixed positioning and 100% width/height should be fine.
+    }
+    // Body style textAlign was here, but seems less relevant with full screen canvas and overlays
+    // document.body.style.textAlign = "left";
+
+
+    const unityCanvas = document.querySelector("#unity-canvas");
+    const loadingOverlay = document.getElementById('loadingOverlay');
+    const progressBar = document.getElementById('progressBar');
+    const loadingText = document.getElementById('loadingText');
+
+
+    createUnityInstance(unityCanvas, {
+      arguments: [],
+      dataUrl: "Build/v0.1.1.data.br",
+      frameworkUrl: "Build/v0.1.1.framework.js.br",
+      codeUrl: "Build/v0.1.1.wasm.br",
+      streamingAssetsUrl: "StreamingAssets",
+      companyName: "DefaultCompany",
+      productName: "Solandium 2063",
+      productVersion: "0.1.0",
+      // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+      // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+    }, (progress) => {
+      if (progressBar && loadingText) {
+        progressBar.style.width = (progress * 100) + "%";
+        loadingText.innerHTML = "Loading... " + Math.round(progress * 100) + "%";
+      }
+    }).then((instance) => {
+      unityGameInstance = instance; // Store the Unity instance
+      if (loadingOverlay) loadingOverlay.style.display = "none";
+      if (unityCanvas) unityCanvas.style.display = "block"; // Show Unity canvas
+      console.log('Unity instance loaded successfully.');
+    }).catch((message) => {
+      alert(`Failed to load Unity instance: ${message}`);
+      console.error(message);
+    });
+
+    // --- Video Player Functions ---
+
+    // Function to hide the video player and resume the Unity game
+    function hideVideoPlayerAndResumeGame() {
+      const videoPlayerOverlay = document.getElementById('videoPlayerOverlay');
+      const videoElement = document.getElementById('myVideoPlayer');
+      const currentUnityCanvas = document.getElementById('unity-canvas'); // Re-fetch
+      if (videoPlayerOverlay && videoElement && currentUnityCanvas) {
+        console.log("Attempting to hide video player and resume game.");
+        videoElement.pause();
+        videoElement.load(); // Important to reset the video element and stop buffering/downloads
+
+        videoPlayerOverlay.style.display = 'none'; // Hide video player
+        currentUnityCanvas.style.display = 'block'; // Show Unity canvas
+
+        if (unityGameInstance) unityGameInstance.SendMessage('GameManager', 'ResumeFromVideo');
+
+        // Try to re-focus the Unity canvas so it can receive input
+        currentUnityCanvas.focus().catch(e => console.warn("Could not focus Unity canvas:", e));
+      } else {
+        console.error("Video player critical elements not found for resuming game.");
+      }
+    }
+
+
+    const myVideoPlayerElement = document.getElementById('myVideoPlayer');
+    if (myVideoPlayerElement) {
+      myVideoPlayerElement.addEventListener('ended', function () {
+        console.log("Video ended, automatically hiding player and resuming game.");
+        hideVideoPlayerAndResumeGame();
+      });
+
+
+
+    } else {
+      console.error("Video element 'myVideoPlayer' not found for attaching event listeners.");
+    }
+
+
+    function requestFullScreenMode(element) {
+      // Check if full-screen is not already active
+      if (!(document.fullscreenElement || document.webkitFullscreenElement || document.mozFullScreenElement || document.msFullscreenElement)) {
+        console.log("Entering full-screen...");
+        if (element.requestFullscreen) {
+          element.requestFullscreen().catch(err => console.error(`Error entering full-screen: ${err.message}`));
+        } else if (element.webkitRequestFullscreen) { /* Safari */
+          element.webkitRequestFullscreen();
+        } else if (element.mozRequestFullScreen) { /* Firefox */
+          element.mozRequestFullScreen();
+        } else if (element.msRequestFullscreen) { /* IE/Edge */
+          element.msRequestFullscreen();
+        }
+      } else {
+        console.log("Already in full-screen mode.");
+      }
+    }
+
+  </script>
+</body>
+
+</html>
