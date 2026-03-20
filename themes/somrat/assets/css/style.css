@@ -963,7 +963,7 @@ a:active {
 
 .project-exhibitions {
     background: #000000;
-    padding: 60px 0px 0 0;
+    padding: 100px 0px 0 0;
 }
 
 .project-exhibitions h1 {
@@ -2140,51 +2140,3 @@ textarea.form-control::-webkit-input-placeholder,
 /*--------------------------------
   End Contact
 ----------------------------------*/
-
-/* Scroll Down Arrow */
-.scroll-down-arrow {
-  position: absolute;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 20;
-  animation: bounce 2s infinite;
-}
-
-.scroll-down-arrow .scroll-link {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 24px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.scroll-down-arrow .scroll-link:hover {
-  color: rgba(255, 255, 255, 1);
-  transform: translateY(-5px);
-}
-
-.scroll-down-arrow .scroll-link i {
-  display: block;
-  animation: pulse 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  40% {
-    transform: translateX(-50%) translateY(-10px);
-  }
-  60% {
-    transform: translateX(-50%) translateY(-5px);
-  }
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.8;
-  }
-  50% {
-    opacity: 1;
-  }
-}

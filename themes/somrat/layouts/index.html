@@ -22,11 +22,10 @@
                 (.Params.button_image_alt | markdownify))}}
             </a>
         </div>
-        <!-- Scroll Down Arrow -->
-        <div class="scroll-down-arrow">
-          <a href="#menu" class="scroll-link">
-            <i class="fas fa-chevron-down"></i>
-          </a>
+        <div class="row content">
+            <div class="arrow-down">
+                <img class="img-fluid image scale-on-hover lozad" src="/images/Arrow_down.png">
+            </div>
         </div>
     </div>
 
@@ -219,17 +218,19 @@
                             </h2>
                             <p class="team-lead-role">{{ .Params.team_lead_role | markdownify }}</p>
                             <h6 class="team-lead-description">{{ .Params.team_lead_description | markdownify }}</h6>
-                            <i class="{{.Params.team_lead_link_icon}} team-lead-description"></i>&nbsp;<a
-                                href="{{ .Params.team_lead_link }}" class="team-lead-description"
-                                style="color:{{ .Params.team_lead_text_color }}">{{ .Params.team_lead_link | replaceRE "https://" "" |
-                                replaceRE "instagram.com/" "" }}</a>
-                            <br style="margin: 0; line-height: 0.1;">
-                            {{ if .Params.team_lead_link2 }}
-                            <i class="{{.Params.team_lead_link_icon2}} team-lead-description"></i>&nbsp;<a
-                                href="{{ .Params.team_lead_link2 }}" class="team-lead-description"
-                                style="color:{{ .Params.team_lead_text_color }}">{{ .Params.team_lead_link2 | replaceRE "https://" "" |
-                                replaceRE "instagram.com/" "" }}</a>
-                            {{ end }}
+                            <div style="line-height:1">
+                                <i class="{{.Params.team_lead_link_icon}} team-lead-description"></i>&nbsp;<a
+                                    href="{{ .Params.team_lead_link }}" class="team-lead-description"
+                                    style="color:{{ .Params.team_lead_text_color }}">{{ .Params.team_lead_link |
+                                    replaceRE "https://" "" |
+                                    replaceRE "instagram.com/" "" }}</a>
+                                <br>
+                                <i class="{{.Params.team_lead_link_icon_email}} team-lead-description"></i>&nbsp;<a
+                                    href="{{ .Params.team_lead_link_email }}" class="team-lead-description"
+                                    style="color:{{ .Params.team_lead_text_color }}">{{ .Params.team_lead_link_email |
+                                    replaceRE
+                                    "https://" "" | replaceRE "instagram.com/" "" }}</a>
+                            </div>
                         </div>
                     </div>
 
@@ -309,23 +310,6 @@
 </section>
 {{ end }}
 
-<!-- Start AWARDS -->
-{{ with .GetPage "06-2-awards"}}
-<section class="project-exhibitions {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}} id="awards">
-    <div class="container">
-        <div class="no-marginLR">
-            <h1 class="wow fadeInUp" data-wow-duration="1.5s">
-                <div class="kolofon-text-h1">{{ .Title | markdownify }}</div>
-            </h1>
-            <div class="content wow fadeInUp" data-wow-duration="1.5s">
-                <div class="kolofon-text">{{ .Content | markdownify | emojify }}</div>
-            </div>
-        </div>
-    </div>
-</section>
-{{ end }}
-<!-- End AWARDS-->
-
 <!-- Start PROJECT EXHIBITIONS -->
 {{ with .GetPage "06-project-exhibitions"}}
 <section class="project-exhibitions {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}}
@@ -343,6 +327,23 @@
 </section>
 {{ end }}
 <!-- End PROJECT EXHIBITIONS -->
+
+<!-- Start AWARDS -->
+{{ with .GetPage "06-2-awards"}}
+<section class="project-exhibitions {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}} id="awards">
+    <div class="container">
+        <div class="no-marginLR">
+            <h1 class="wow fadeInUp" data-wow-duration="1.5s">
+                <div class="kolofon-text-h1">{{ .Title | markdownify }}</div>
+            </h1>
+            <div class="content wow fadeInUp" data-wow-duration="1.5s">
+                <div class="kolofon-text">{{ .Content | markdownify | emojify }}</div>
+            </div>
+        </div>
+    </div>
+</section>
+{{ end }}
+<!-- End AWARDS-->
 <!-- Start media-coverage -->
 {{ with .GetPage "08-media-coverage"}}
 <section class="media-coverage {{.Params.custom_class}}" {{.Params.custom_attributes | safeHTMLAttr}}
@@ -358,6 +359,7 @@
                 <div class="kolofon-text">{{ .Content | markdownify | emojify }}</div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 {{ end }}

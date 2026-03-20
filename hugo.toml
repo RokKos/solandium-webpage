@@ -2,8 +2,7 @@
 baseURL = "https://solandium.com"
 theme = "somrat"
 # post pagination
-[pagination]
-pagerSize = 6
+paginate = "6"
 # post excerpt
 summaryLength = "10"
 # disable language
@@ -118,7 +117,7 @@ weight = 5
 [[Languages.en.menu.main]]
 name = "Info"
 pre = "#"
-url = "awards"
+url = "project-exhibitions"
 weight = 6
 
 
@@ -164,7 +163,7 @@ weight = 6
 [[Languages.slo.menu.main]]
 name = "Info"
 pre = "/slo/#"
-url = "awards"
+url = "project-exhibitions"
 weight = 7
 
 [imaging]
