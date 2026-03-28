@@ -30,19 +30,19 @@
   status = 200
   
 [[headers]]
-  for = "*.js.br"
+  for = "/Build/*.js.br"
   [headers.values]
     Content-Type = "application/javascript"
     Content-Encoding = "br"
 
 [[headers]]
-  for = "*.wasm.br"
+  for = "/Build/*.wasm.br"
   [headers.values]
     Content-Type = "application/wasm"
     Content-Encoding = "br"
 
 [[headers]]
-  for = "*.data.br"
+  for = "/Build/*.data.br"
   [headers.values]
     Content-Type = "application/octet-stream"
     Content-Encoding = "br"
